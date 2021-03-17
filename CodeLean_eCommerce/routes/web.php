@@ -37,3 +37,17 @@ Route::prefix('shop')->group(function (){
 
     Route::get('/{categoryName}',[Front\ShopController::class, 'category']);
 });
+
+Route::prefix('cart')->group(function (){
+    Route::get('add/{id}',[Front\CartController::class,'add']);
+
+    Route::get('/',[Front\CartController::class,'index']);
+
+    Route::get('delete/{rowId}',[Front\CartController::class,'delete']);
+
+    Route::get('/destroy',[Front\CartController::class,'destroy']);
+
+    Route::get('/update',[Front\CartController::class,'update']);
+});
+
+
